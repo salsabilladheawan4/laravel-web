@@ -34,7 +34,11 @@ class MahasiswaController extends Controller
      * Display the specified resource.
      */
     public function show(string $id){
-        return "Menampilkan mata kuliah dengan ID : " .$id;
+       if ($id) {
+            return "Anda mengakses matakuliah " . $id;
+}      else {
+            return "Masukkan kode Matakuliah ! :/";
+}
     }
 
     /**
