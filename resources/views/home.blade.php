@@ -56,6 +56,12 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
+
+            <img src="{{ asset('assets/images/logo laravel.png') }}" alt="Logo">
+
+            <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
+
+
             <a class="navbar-brand" href="#">My Laravel App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -82,8 +88,8 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1 class="display-6 mb-2">{{ $username }}</h1>
-            <p class="lead mb-0">{{ $last_login }}</p>
+            <h1 class="font-custom">Welcome to My App</h1>
+            <p class="font-custom">A simple and elegant app using Bootstrap 5 and Laravel Blade</p>
         </div>
     </section>
 
@@ -157,14 +163,20 @@
                      <div class="card-body">
                          <h5 class="card-title">Form Pertanyaan</h5>
 
-                         @if ($errors->any())
-                             <div class="alert alert-danger">
+                         @if (@session('info'))
+                             <div class="alert alert-info">
                         <ul>
                              @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                              @endforeach
                          </ul>
                         </div>
+                        @endif
+
+                        @if (session('info'))
+                             <div class="alert alert-info">
+                             {!! session('info') !!}
+                            </div>
                         @endif
 
                          <form action="{{ route('question.store') }}" method="POST">
@@ -180,7 +192,7 @@
                             <div class="mb-3">
                                 <label for="pertanyaan" class="form-label">Pertanyaan</label>
                                 <textarea class="form-control" rows="4"name ="pertanyaan" value="{{old('pertanyaan')}}">
-                            </div>></textarea>
+                            </textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Kirim Pertanyaan</button>
                         </form>

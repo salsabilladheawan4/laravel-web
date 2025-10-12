@@ -1,0 +1,14 @@
+.navbar-logo{
+    height: 40px;
+    width : auto;
+    margin-right :10px;
+    object-fit:contain;
+}
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('assets/fonts/BBHSansHegarty-Regular.ttf'));
+}
+
+.font-custom{
+    font-family: 'MyCustomFont';
+}

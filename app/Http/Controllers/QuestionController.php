@@ -34,13 +34,19 @@ class QuestionController extends Controller
             'pertanyaan' => 'required|max:300|min:8',
         ], [
             'nama.required' => 'Nama tidak boleh kosong',
-            'email.email' => 'Email tidak valid'
+            'email.required' => 'Email tidak boleh kosong',
+            'email.email' => 'Email tidak valid',
+            'pertanyaan.required'=>'Isi dong pertanyaan',
+            'pertanyaan.min'=>'pertanyaan minimal harus 10 karakter'
         ]);
 
         $data['nama'] = $request->nama;
         $data['email'] = $request->email;
         $data['pertanyaan'] = $request->pertanyaan;
-        return view('home-question-respon', $data);
+
+        //return view('home-question-respon', $data);
+        return redirect()->back()->with('info', 'Terima kasih <b>'.$data['nama'].'</b>! Pertanyaan ini: 
+        <b>'.$data['pertanyaan'].'</b> sudah kami terima,kami akan mengirimkan jawaban ke email: <b>'.$data['email'].'</b>');
     }
 
     /**
