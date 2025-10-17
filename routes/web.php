@@ -6,7 +6,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\PelangganController;
 
 
 Route::get('/home', [HomeController::class, 'index']);
@@ -18,3 +18,5 @@ Route::get('/auth', [AuthController::class, 'index'])->name('login.form');
 Route::post('/auth/login', [AuthController::class, 'login'])->name('login.submit');	
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::resource('/pelanggan', PelangganController::class);
