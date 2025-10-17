@@ -20,3 +20,5 @@ Route::post('/auth/login', [AuthController::class, 'login'])->name('login.submit
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('/pelanggan', PelangganController::class);
+
+Route::resource('/pelanggan/update', PelangganController::class);
